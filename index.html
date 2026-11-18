@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radar da Lu | Grupo de ofertas no WhatsApp</title>
+<meta name="description" content="Curadoria de variedades e utilidades com o meu toque. Entre no grupo e receba os achados do dia.">
+<meta property="og:title" content="Radar da Lu | Grupo de ofertas no WhatsApp">
+<meta property="og:description" content="Curadoria de variedades e utilidades com o meu toque. Entre no grupo e receba os achados do dia.">
+<meta property="og:image" content="foto-perfil.png">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0C1117">
+<link rel="icon" href="foto-perfil.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --fundo: #0C1117;
+    --painel: #17202A;
+    --linha: #2A3644;
+    --pilula: #505B6B;
+    --texto: #F4F6F8;
+    --suave: #A9B3C1;
+    --zap: #25D366;
+    --zap-escuro: #1DB955;
+    --sobre-zap: #06210F;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+  }
+  main { max-width: 480px; margin: 0 auto; padding: 36px 20px 40px; text-align: center; }
+
+  .avatar {
+    width: 116px; height: 116px; border-radius: 50%;
+    border: 3px solid var(--fundo);
+    box-shadow: 0 0 0 2px #fff;
+    display: block; margin: 0 auto 16px;
+    background: var(--painel);
+  }
+  .nome { font-size: 1.6rem; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
+  .bio { color: var(--suave); margin: 4px auto 0; max-width: 32ch; }
+
+  h1 { font-size: 1.75rem; line-height: 1.15; font-weight: 700; margin: 28px 0 8px; letter-spacing: -0.02em; }
+  .sub { color: var(--suave); margin: 0 0 20px; }
+
+  .cta {
+    display: flex; align-items: center; justify-content: center;
+    width: 100%; min-height: 60px;
+    background: var(--zap); color: var(--sobre-zap);
+    font: inherit; font-weight: 700; font-size: 1.15rem;
+    border-radius: 999px; text-decoration: none;
+    transition: background .15s;
+  }
+  .cta:hover { background: var(--zap-escuro); }
+  .cta:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+  /* Lojas: logos sem link, só como referência */
+  .lojas-titulo { color: var(--suave); font-size: .92rem; margin: 30px 0 12px; }
+  .logos { display: flex; gap: 10px; justify-content: center; }
+  .logos li {
+    flex: 1 1 0; max-width: 140px; height: 64px;
+    background: #fff; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    padding: 10px 12px;
+  }
+  .logos img { max-width: 100%; max-height: 100%; width: auto; height: auto; display: block; }
+  ul.logos { list-style: none; padding: 0; margin: 0; }
+
+  /* Vitrine de categorias */
+  .vitrine {
+    display: flex; gap: 10px; overflow-x: auto; margin: 26px -20px 0; padding: 0 20px 6px;
+    scroll-snap-type: x mandatory; scroll-padding: 0 20px;
+    list-style: none; text-align: left;
+    scrollbar-width: none;
+  }
+  .vitrine::-webkit-scrollbar { display: none; }
+  .vitrine:focus-visible { outline: 3px solid #fff; outline-offset: -3px; border-radius: 12px; }
+  .vitrine li { flex: 0 0 44%; max-width: 190px; position: relative; scroll-snap-align: start; border-radius: 16px; overflow: hidden; background: var(--painel); }
+  .vitrine img { display: block; width: 100%; height: auto; aspect-ratio: 5 / 6; object-fit: cover; }
+  .vitrine span {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 28px 12px 10px; font-weight: 700; font-size: .95rem;
+    background: linear-gradient(to top, rgba(12,17,23,.9), rgba(12,17,23,0));
+  }
+
+  /* Pré-visualização do grupo */
+  .chat { margin-top: 28px; background: var(--painel); border: 1px solid var(--linha); border-radius: 20px; padding: 14px; text-align: left; }
+  .chat-topo { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-weight: 700; font-size: .95rem; }
+  .chat-topo img { width: 38px; height: 38px; border-radius: 50%; flex: none; }
+  .chat-topo span { display: block; font-weight: 400; font-size: .8rem; color: var(--suave); }
+  .balao { background: var(--pilula); border-radius: 4px 14px 14px 14px; padding: 12px 14px; max-width: 92%; font-size: .95rem; }
+  .balao + .balao { margin-top: 8px; }
+  .balao strong { display: block; margin-bottom: 4px; }
+  .hora { display: block; text-align: right; font-size: .72rem; color: #D5DBE3; margin-top: 4px; }
+
+  .regras { list-style: none; padding: 0; margin: 24px 0 0; text-align: left; }
+  .regras li { padding: 10px 0; border-top: 1px solid var(--linha); font-size: .98rem; }
+  .regras li:last-child { border-bottom: 1px solid var(--linha); }
+
+  /* Botões das lojas (aparecem só quando o link estiver preenchido) */
+  .botoes-lojas { margin-top: 28px; }
+  .botoes-lojas h2 { font-size: 1rem; font-weight: 500; color: var(--suave); margin: 0 0 12px; }
+  .botoes-lojas a {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 52px; margin-top: 8px;
+    background: var(--pilula); color: var(--texto);
+    border-radius: 999px; text-decoration: none; font-weight: 500;
+  }
+  .botoes-lojas a:hover { background: #5E6A7C; }
+  .botoes-lojas a:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+  footer { margin-top: 28px; font-size: .78rem; color: var(--suave); }
+</style>
+</head>
+<body>
+<main>
+  <img class="avatar" src="foto-perfil.png" alt="Foto de perfil de Radar da Lu" width="116" height="116">
+  <p class="nome">Radar da Lu</p>
+  <p class="bio">✨ Curadoria de variedades e utilidades com o meu toque</p>
+
+  <h1>Receba os achados do dia direto no WhatsApp</h1>
+  <p class="sub">Entre no grupo e pegue os links das ofertas que eu separei para você.</p>
+
+  <a id="entrar" class="cta" href="#">Entrar no grupo grátis</a>
+
+  <p class="lojas-titulo">Achados das lojas que você já conhece</p>
+  <ul class="logos">
+    <li><img src="logo-shopee.png" alt="Shopee" width="411" height="140"></li>
+    <li><img src="logo-mercadolivre.png" alt="Mercado Livre" width="155" height="140"></li>
+    <li><img src="logo-shein.png" alt="Shein" width="252" height="140"></li>
+  </ul>
+
+  <ul class="vitrine" tabindex="0" aria-label="Categorias de produtos (deslize para o lado)">
+    <li><img src="produto-casa.jpg" alt="Saboneteira de vidro âmbar sobre a pia" width="480" height="576" loading="lazy"><span>Casa</span></li>
+    <li><img src="produto-acessorios.jpg" alt="Chaveiro de contas para celular" width="480" height="576" loading="lazy"><span>Acessórios</span></li>
+    <li><img src="produto-brincos.jpg" alt="Brincos dourados de design curvo" width="480" height="576" loading="lazy"><span>Brincos</span></li>
+    <li><img src="produto-cozinha.jpg" alt="Suporte de bambu com canecas brancas" width="480" height="576" loading="lazy"><span>Cozinha</span></li>
+    <li><img src="produto-bolsas.jpg" alt="Duas bolsas de viagem bege e pretas" width="480" height="576" loading="lazy"><span>Bolsas e viagem</span></li>
+  </ul>
+
+  <!-- Exemplo genérico do que o membro vai receber. Não precisa atualizar. -->
+  <section class="chat" aria-label="Exemplo de mensagens do grupo">
+    <div class="chat-topo">
+      <img src="foto-perfil.png" alt="" width="38" height="38">
+      <div>Radar da Lu | Ofertas <span>Só a administração envia mensagens</span></div>
+    </div>
+    <div class="balao">
+      <strong>Achado do dia</strong>
+      Um produto selecionado, com o link direto para comprar
+      <span class="hora">06:30</span>
+    </div>
+    <div class="balao">
+      <strong>Para a sua casa</strong>
+      Utilidades e novidades escolhidas por mim
+      <span class="hora">07:10</span>
+    </div>
+  </section>
+
+  <ul class="regras">
+    <li>Mensagens em horários fixos, sem bagunça</li>
+    <li>Só a administração envia: sem spam de terceiros</li>
+    <li>Você pode sair do grupo quando quiser</li>
+  </ul>
+
+  <section id="lojas" class="botoes-lojas" hidden>
+    <h2>Prefere ir direto às lojas?</h2>
+    <a id="loja-shopee" href="#" hidden>Loja Shopee</a>
+    <a id="loja-ml" href="#" hidden>Loja Mercado Livre</a>
+    <a id="loja-shein" href="#" hidden>Loja Shein</a>
+  </section>
+
+  <footer>
+    Este grupo divulga produtos de lojas parceiras. Posso receber comissão pelas compras feitas através dos links, sem custo adicional para você.
+  </footer>
+</main>
+
+<script>
+  /* ====== CONFIGURE AQUI ====== */
+  var LINK_DO_GRUPO = "https://redirecionazap.com/r/radar-da-lu-ofertas/wccU";
+  var LINK_SHOPEE   = ""; // link da loja na Shopee (comece com https://). Vazio = botão escondido.
+  var LINK_MERCADO_LIVRE = ""; // link da loja no Mercado Livre
+  var LINK_SHEIN    = ""; // link da loja na Shein
+  var PIXEL_ID = ""; // ID do Pixel da Meta (somente números). Deixe vazio se ainda não tiver.
+  /* ============================ */
+
+  var botao = document.getElementById("entrar");
+  botao.href = LINK_DO_GRUPO;
+
+  // Mostra só os botões de loja que tiverem link preenchido
+  var lojas = [
+    ["loja-shopee", LINK_SHOPEE],
+    ["loja-ml", LINK_MERCADO_LIVRE],
+    ["loja-shein", LINK_SHEIN]
+  ];
+  var algumaLoja = false;
+  lojas.forEach(function (l) {
+    if (l[1].indexOf("http") === 0) {
+      var a = document.getElementById(l[0]);
+      a.href = l[1];
+      a.hidden = false;
+      algumaLoja = true;
+    }
+  });
+  if (algumaLoja) document.getElementById("lojas").hidden = false;
+
+  if (PIXEL_ID) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', PIXEL_ID);
+    fbq('track', 'PageView');
+    botao.addEventListener("click", function () { fbq('track', 'Lead'); });
+  }
+</script>
+</body>
+</html>
